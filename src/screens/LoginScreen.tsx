@@ -33,7 +33,9 @@ const LoginScreen = ({navigation}: Props) => {
           <Button title={'Ingresar'} buttonStyle={styles.button} />
           <View style={styles.containerlinks}>
             <Text>Olvidaste tu contraseña?</Text>
-            <Text>Registrarse</Text>
+            <Text onPress={() => navigation.navigate('RegisterScreen')}>
+              Registrarse
+            </Text>
           </View>
         </Card>
       </View>
