@@ -25,7 +25,9 @@ const AssignaturesScreen = ({navigation}: Props) => {
           showsVerticalScrollIndicator={false}
           data={assignatures}
           renderItem={({item}) => (
-            <TouchableOpacity style={styles.tarjetas}>
+            <TouchableOpacity
+              style={styles.tarjetas}
+              onPress={() => navigation.navigate('LearningStyleScreen')}>
               <Text style={styles.tarjetaText} h3>
                 {item.name}
               </Text>
