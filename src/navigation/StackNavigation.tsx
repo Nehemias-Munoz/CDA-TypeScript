@@ -4,6 +4,7 @@ import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import AssignaturesScreen from '../screens/AssignaturesScreen';
 import LearningStyleScreen from '../screens/LearningStyleScreen';
+import TabsNavigation from './TabsNavigation';
 
 const StackNavigation = () => {
   const Stack = createStackNavigator();
@@ -19,6 +20,7 @@ const StackNavigation = () => {
         name={'LearningStyleScreen'}
         component={LearningStyleScreen}
       />
+      <Stack.Screen name={'TabsNavigation'} component={TabsNavigation} />
     </Stack.Navigator>
   );
 };
