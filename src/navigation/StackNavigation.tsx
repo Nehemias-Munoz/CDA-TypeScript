@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import AssignaturesScreen from '../screens/AssignaturesScreen';
+import LearningStyleScreen from '../screens/LearningStyleScreen';
 
 const StackNavigation = () => {
   const Stack = createStackNavigator();
@@ -13,6 +14,10 @@ const StackNavigation = () => {
       <Stack.Screen
         name={'AssignaturesScreen'}
         component={AssignaturesScreen}
+      />
+      <Stack.Screen
+        name={'LearningStyleScreen'}
+        component={LearningStyleScreen}
       />
     </Stack.Navigator>
   );
