@@ -30,7 +30,11 @@ const LoginScreen = ({navigation}: Props) => {
             placeholder={'****'}
             maxLength={4}
           />
-          <Button title={'Ingresar'} buttonStyle={styles.button} />
+          <Button
+            title={'Ingresar'}
+            buttonStyle={styles.button}
+            onPress={() => navigation.navigate('AssignaturesScreen')}
+          />
           <View style={styles.containerlinks}>
             <Text>Olvidaste tu contraseña?</Text>
             <Text onPress={() => navigation.navigate('RegisterScreen')}>
