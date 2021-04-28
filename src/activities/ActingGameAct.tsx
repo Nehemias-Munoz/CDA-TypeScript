@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Card} from 'react-native-elements';
+import EvidenceTypeBar from '../components/EvidenceTypeBar';
 
 const ActingGameAct = () => {
+  //Tipo de componente submit
+  const [typeSubmit, setTypeSubmit] = useState<string>();
   //Datos Actividad
   const [activity] = useState({
     id: 1,
@@ -20,6 +23,10 @@ const ActingGameAct = () => {
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Card>
+            <EvidenceTypeBar
+              type={activity.type}
+              setTypeSubmit={setTypeSubmit}
+            />
             <ScrollView showsVerticalScrollIndicator={false}>
               <Card.Title style={styles.title}>{activity.title}</Card.Title>
               <View style={styles.activityContent}>
