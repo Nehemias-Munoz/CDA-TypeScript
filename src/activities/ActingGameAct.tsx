@@ -4,6 +4,7 @@ import {Card} from 'react-native-elements';
 import ButtonResource from '../components/ButtonResource';
 import EvidenceTypeBar from '../components/EvidenceTypeBar';
 import SubmitComponent from '../components/SubmitComponent';
+import MyList from '../components/MyList';
 
 const ActingGameAct = () => {
   //Tipo de componente submit
@@ -41,6 +42,7 @@ const ActingGameAct = () => {
               </View>
               <ButtonResource typeResource={typeSubmit} />
               <SubmitComponent typeSubmit={typeSubmit} />
+              <MyList />
             </ScrollView>
           </Card>
         </ScrollView>
