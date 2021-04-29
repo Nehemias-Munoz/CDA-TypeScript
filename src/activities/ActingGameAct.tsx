@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Card} from 'react-native-elements';
+import ButtonResource from '../components/ButtonResource';
 import EvidenceTypeBar from '../components/EvidenceTypeBar';
 
 const ActingGameAct = () => {
   //Tipo de componente submit
-  const [typeSubmit, setTypeSubmit] = useState<string>();
+  const [typeSubmit, setTypeSubmit] = useState('');
   //Datos Actividad
   const [activity] = useState({
     id: 1,
@@ -37,6 +38,7 @@ const ActingGameAct = () => {
                 <Text style={styles.infoTitle}>Instruciones:</Text>
                 <Text style={styles.infoDesc}>{activity.instruction}</Text>
               </View>
+              <ButtonResource typeResource={typeSubmit} />
             </ScrollView>
           </Card>
         </ScrollView>
