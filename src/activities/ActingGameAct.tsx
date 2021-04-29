@@ -3,6 +3,7 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Card} from 'react-native-elements';
 import ButtonResource from '../components/ButtonResource';
 import EvidenceTypeBar from '../components/EvidenceTypeBar';
+import SubmitComponent from '../components/SubmitComponent';
 
 const ActingGameAct = () => {
   //Tipo de componente submit
@@ -39,6 +40,7 @@ const ActingGameAct = () => {
                 <Text style={styles.infoDesc}>{activity.instruction}</Text>
               </View>
               <ButtonResource typeResource={typeSubmit} />
+              <SubmitComponent typeSubmit={typeSubmit} />
             </ScrollView>
           </Card>
         </ScrollView>
