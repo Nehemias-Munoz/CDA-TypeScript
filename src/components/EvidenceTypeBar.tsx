@@ -55,8 +55,9 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
     <View style={styles.container}>
       {microphone ? (
         <Icon
+          reverse
+          raised
           size={20}
-          raised={true}
           type={'material-community'}
           name={'microphone'}
           onPress={() => setTypeSubmit('Audio')}
