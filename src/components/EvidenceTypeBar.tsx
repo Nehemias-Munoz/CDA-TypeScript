@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 
 interface Props {
-  type: string | [string];
+  type: string | string[];
   setTypeSubmit: (value: string) => void;
 }
 
@@ -55,7 +55,6 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
     <View style={styles.container}>
       {microphone ? (
         <Icon
-          reverse
           raised
           size={20}
           type={'material-community'}
@@ -66,7 +65,7 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
       {video ? (
         <Icon
           size={20}
-          raised={true}
+          raised
           type={'material-community'}
           name={'video'}
           onPress={() => setTypeSubmit('Link')}
@@ -75,7 +74,7 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
       {document ? (
         <Icon
           size={20}
-          raised={true}
+          raised
           type={'material-community'}
           name={'format-text'}
           onPress={() => setTypeSubmit('Document')}
@@ -84,7 +83,7 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
       {image ? (
         <Icon
           size={20}
-          raised={true}
+          raised
           type={'material-community'}
           name={'image-multiple'}
           onPress={() => setTypeSubmit('Image')}
@@ -93,9 +92,10 @@ const EvidenceTypeBar = ({type, setTypeSubmit}: Props) => {
       {automatic ? (
         <Icon
           size={20}
-          raised={true}
+          raised
           type={'material-community'}
           name={'robot'}
+          onPress={() => setTypeSubmit('Automatic')}
         />
       ) : null}
     </View>

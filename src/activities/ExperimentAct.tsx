@@ -1,22 +1,29 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, View, ActivityIndicator} from 'react-native';
-import {Card, Text} from 'react-native-elements';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from 'react-native';
+import {Card} from 'react-native-elements';
+
 //Componentes
 import EvidenceTypeBar from '../components/EvidenceTypeBar';
 import SubmitComponent from '../components/SubmitComponent';
 import MyList from '../components/MyList';
 
-const ActingGameAct = () => {
+const ExperimentAct = () => {
   //Tipo de componente submit
   const [typeSubmit, setTypeSubmit] = useState('');
   //Datos Actividad
   const [activity] = useState({
-    id: 1,
-    title: 'Actuación',
-    type: 'Link',
+    id: 5,
+    title: 'Experimento',
+    type: ['Link', 'Audio'],
     description:
-      'Crea un video de un minuto, donde tu y tus amigos representen el siguiente concepto:',
-    concept: 'Celula',
+      'Realice un experimento, donde emplee medidas y realice pruebas para comprobar y estudiar el siguiente proceso:',
+    concept: 'Fotosintesis',
     instruction:
       'Grabe un video, suba a Youtube y comparta el link del video, ejemplo: https://youtu.be/ejemplo.',
   });
@@ -35,21 +42,19 @@ const ActingGameAct = () => {
               <Card.Image
                 style={styles.imageStyle}
                 PlaceholderContent={<ActivityIndicator />}
-                source={require('../../src/assets/activities/actinggame.jpg')}
+                source={require('../assets/activities/experiment.jpg')}
               />
               <Card containerStyle={styles.secondaryCard}>
-                <Text style={styles.infoTitle}>Descripción:</Text>
+                <Text style={styles.infoTitle}>Descripcion:</Text>
                 <Text style={styles.infoDesc}>
                   {activity.description} {activity.concept}
                 </Text>
-                <View style={styles.containerConcept}>
-                  <Card.Image
-                    containerStyle={styles.imageConceptContainer}
-                    PlaceholderContent={<ActivityIndicator />}
-                    style={styles.imageConceptStyle}
-                    source={require('../../src/assets/activities/actinggame/cells.png')}
-                  />
-                </View>
+                <Card.Image
+                  containerStyle={styles.imageConceptContainer}
+                  PlaceholderContent={<ActivityIndicator />}
+                  style={styles.imageConcept}
+                  source={require('../assets/activities/experiment/photosynthesis.jpg')}
+                />
                 <Text style={styles.infoTitle}>Instruciones:</Text>
                 <Text style={styles.infoDesc}>{activity.instruction}</Text>
               </Card>
@@ -67,12 +72,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  imageStyle: {
+    height: 100,
+  },
   title: {
     fontSize: 15,
     textTransform: 'uppercase',
-  },
-  imageStyle: {
-    height: 100,
   },
   secondaryCard: {
     marginHorizontal: 0,
@@ -80,26 +85,23 @@ const styles = StyleSheet.create({
   },
   infoTitle: {
     marginTop: 5,
-    fontWeight: 'bold',
     fontSize: 16,
+    fontWeight: 'bold',
   },
   infoDesc: {
     fontSize: 14,
+    marginVertical: 3,
     fontWeight: 'normal',
     textAlign: 'justify',
-  },
-  containerConcept: {
-    padding: 5,
-    alignItems: 'center',
   },
   imageConceptContainer: {
     margin: 10,
     borderRadius: 5,
   },
-  imageConceptStyle: {
-    width: 100,
+  imageConcept: {
     height: 100,
+    width: '100%',
   },
 });
 
-export default ActingGameAct;
+export default ExperimentAct;
