@@ -34,7 +34,7 @@ const TabsNavigation = () => {
       <Tab.Screen name={'StoryTellerAct'} component={StoryTellerAct} />
       <Tab.Screen name={'ArtisticDanceAct'} component={ArtisticDanceAct} />
       <Tab.Screen name={'VolunteeringAct'} component={VolunteeringAct} />
-      {/* <Tab.Screen name={'HangmanAct'} component={HangmanAct} /> */}
+      <Tab.Screen name={'HangmanAct'} component={HangmanAct} />
       <Tab.Screen name={'QuizRadioAct'} component={QuizRadioAct} />
     </Tab.Navigator>
   );

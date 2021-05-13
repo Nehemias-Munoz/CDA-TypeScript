@@ -52,7 +52,7 @@ const HangmanAct = () => {
     {letter: 'Z'},
   ]);
   const palabraIncognita = activity.concept;
-  const [letrasIncognitas, setLetrasIncognitas] = useState();
+  const letrasIncognitas = []; 
   const [numeroDeLetras, setNumeroDeLetras] = useState(palabraIncognita.length);
   const [vidas, setVidas] = useState(5);
 
@@ -73,7 +73,7 @@ const HangmanAct = () => {
     );
     for (let i = 0; i < palabraIncognita.length; i++) {
       if (palabraIncognita[i] === e) {
-        setLetrasIncognitas(([i] = e));
+        letrasIncognitas[i] = e; 
         setNumeroDeLetras(numeroDeLetras - 1);
         return;
       }
@@ -100,7 +100,7 @@ const HangmanAct = () => {
                 PlaceholderContent={<ActivityIndicator />}
                 source={require('../assets/activities/hangman.jpg')}
               />
-              <View style={styles.activityContent}>
+              <Card containerStyle={styles.secondaryCard}>
                 <Text style={styles.infoTitle}>Descripcion:</Text>
                 <Text style={styles.infoDesc}>
                   {activity.description} {activity.definition}
@@ -116,7 +116,7 @@ const HangmanAct = () => {
                   />
                 </View>
                 <View style={styles.wordContainer}>
-                  {letrasIncognitas.map((guiones: string, i: number) => (
+                  {letrasIncognitas.map((guiones, i) => (
                     <Text key={i} style={styles.guiones}>
                       {guiones}
                     </Text>
@@ -133,7 +133,7 @@ const HangmanAct = () => {
                     />
                   ))}
                 </View>
-              </View>
+              </Card>
             </ScrollView>
           </Card>
         </ScrollView>
@@ -152,15 +152,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textTransform: 'uppercase',
   },
-  activityContent: {
-    padding: 10,
-    borderWidth: 0,
-    marginVertical: 5,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
-    elevation: 2,
-    shadowOffset: {width: 0, height: 2},
+  secondaryCard:{
+    marginHorizontal:0,
+    width:'100%',
   },
   infoTitle: {
     marginTop: 5,

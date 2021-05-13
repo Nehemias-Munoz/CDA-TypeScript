@@ -14,6 +14,7 @@ import EvidenceTypeBar from '../components/EvidenceTypeBar';
 import MyList from '../components/MyList';
 
 const LabyrinthAct = () => {
+  const [typeSubmit, setTypeSubmit] = useState('');
   //RADIO BUTTON
   const [value, setValue] = useState('');
   //Datos Actividad
@@ -39,7 +40,10 @@ const LabyrinthAct = () => {
           <Card>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Card.Title style={styles.title}>{activity.title}</Card.Title>
-              <EvidenceTypeBar type={activity.type} />
+              <EvidenceTypeBar
+                type={activity.type}
+                setTypeSubmit={setTypeSubmit}
+              />
               <Card.Image
                 style={styles.imageStyle}
                 PlaceholderContent={<ActivityIndicator />}
@@ -64,6 +68,13 @@ const LabyrinthAct = () => {
                   {activity.options.map(item => (
                     <RadioButton.Item
                       key={item.id}
+                      style={{
+                        backgroundColor: 'rgb(251,250,250)',
+                        borderColor: 'rgb(240,239,240)',
+                        borderWidth: 1,
+                        borderRadius: 5,
+                        marginVertical: 3,
+                      }}
                       label={item.label.toString()}
                       value={item.label}
                     />

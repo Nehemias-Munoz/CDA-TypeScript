@@ -7,7 +7,6 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import {Card, Button, Input, Text} from 'react-native-elements';
-import {ScrollView} from 'react-native-gesture-handler';
 import {KeyboardAvoidingScrollView} from 'react-native-keyboard-avoiding-scroll-view';
 
 interface Props extends StackScreenProps<any, any> {}
@@ -23,7 +22,7 @@ const LoginScreen = ({navigation}: Props) => {
             <Card.Title h4>Inicio de sesión</Card.Title>
             <Input
               label={'Email'}
-              placeholder={'ejem: Alex@gmail.com'}
+              placeholder={'Ejem: Alex@gmail.com'}
               keyboardType={'email-address'}
               autoCompleteType={'email'}
               maxLength={25}
