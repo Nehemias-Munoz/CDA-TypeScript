@@ -34,7 +34,7 @@ const LearningStyleScreen = ({navigation}: Props) => {
         <View style={styles.content}>
           {learnings.map(item => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('Activities')}
+              onPress={() => navigation.navigate('TabsNavigation')}
               key={item.id}
               style={[
                 styles.buttonContainer,
