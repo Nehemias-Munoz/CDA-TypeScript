@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Card} from 'react-native-elements';
-import ButtonResource from '../components/ButtonResource';
+import {ScrollView, StyleSheet, View, ActivityIndicator} from 'react-native';
+import {Card, Text} from 'react-native-elements';
+//Componentes
 import EvidenceTypeBar from '../components/EvidenceTypeBar';
 import SubmitComponent from '../components/SubmitComponent';
 import MyList from '../components/MyList';
@@ -26,22 +26,34 @@ const ActingGameAct = () => {
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Card>
-            <EvidenceTypeBar
-              type={activity.type}
-              setTypeSubmit={setTypeSubmit}
-            />
             <ScrollView showsVerticalScrollIndicator={false}>
               <Card.Title style={styles.title}>{activity.title}</Card.Title>
-              <View style={styles.activityContent}>
+              <EvidenceTypeBar
+                type={activity.type}
+                setTypeSubmit={setTypeSubmit}
+              />
+              <Card.Image
+                style={styles.imageStyle}
+                PlaceholderContent={<ActivityIndicator />}
+                source={require('../../src/assets/activities/actinggame.jpg')}
+              />
+              <Card containerStyle={styles.secondaryCard}>
                 <Text style={styles.infoTitle}>Descripción:</Text>
                 <Text style={styles.infoDesc}>
                   {activity.description} {activity.concept}
                 </Text>
+                <View style={styles.containerConcept}>
+                  <Card.Image
+                    containerStyle={styles.imageConceptContainer}
+                    PlaceholderContent={<ActivityIndicator />}
+                    style={styles.imageConceptStyle}
+                    source={require('../../src/assets/activities/actinggame/cells.png')}
+                  />
+                </View>
                 <Text style={styles.infoTitle}>Instruciones:</Text>
                 <Text style={styles.infoDesc}>{activity.instruction}</Text>
-              </View>
-              <ButtonResource typeResource={typeSubmit} />
-              <SubmitComponent typeSubmit={typeSubmit} />
+              </Card>
+              {typeSubmit ? <SubmitComponent typeSubmit={typeSubmit} /> : null}
               <MyList />
             </ScrollView>
           </Card>
@@ -59,15 +71,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textTransform: 'uppercase',
   },
-  activityContent: {
-    padding: 10,
-    borderWidth: 0,
-    marginVertical: 5,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
-    elevation: 2,
-    shadowOffset: {width: 0, height: 2},
+  imageStyle: {
+    height: 100,
+  },
+  secondaryCard: {
+    marginHorizontal: 0,
+    width: '100%',
   },
   infoTitle: {
     marginTop: 5,
